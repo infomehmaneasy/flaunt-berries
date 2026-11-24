@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 40% 96%;
+    --foreground: 0 0% 18%;
+    --card: 30 40% 99%;
+    --card-foreground: 0 0% 18%;
+    --popover: 30 40% 99%;
+    --popover-foreground: 0 0% 18%;
+    --primary: 14 38% 63%;
+    --primary-foreground: 30 40% 99%;
+    --secondary: 30 30% 94%;
+    --secondary-foreground: 0 0% 18%;
+    --muted: 30 25% 92%;
+    --muted-foreground: 20 10% 40%;
+    --accent: 60 24% 39%;
+    --accent-foreground: 30 40% 99%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 30 40% 99%;
+    --border: 30 25% 88%;
+    --input: 30 25% 88%;
+    --ring: 14 38% 63%;
+    --chart-1: 14 38% 63%;
+    --chart-2: 60 24% 39%;
+    --chart-3: 30 40% 70%;
+    --chart-4: 20 30% 55%;
+    --chart-5: 40 35% 60%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream-100 text-ink font-body antialiased;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-display;
+  }
+  ::selection {
+    background: #C98B79;
+    color: #fff;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(201, 139, 121, 0.12);
+  }
+  .glass-dark {
+    background: rgba(47, 47, 47, 0.45);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .glass-rose {
+    background: rgba(248, 243, 239, 0.6);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid rgba(201, 139, 121, 0.25);
+    box-shadow: 0 10px 40px rgba(201, 139, 121, 0.15);
+  }
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #C98B79 0%,
+      #E2A589 25%,
+      #D69E6B 50%,
+      #E2A589 75%,
+      #C98B79 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+  .text-gold-gradient {
+    background: linear-gradient(120deg, #C98B79 0%, #E2A589 50%, #D69E6B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .luxury-shadow {
+    box-shadow: 0 20px 60px -15px rgba(201, 139, 121, 0.25);
+  }
+  .luxury-shadow-hover {
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+  }
+  .luxury-shadow-hover:hover {
+    box-shadow: 0 30px 80px -20px rgba(201, 139, 121, 0.4);
+  }
+  .btn-rose {
+    @apply relative overflow-hidden rounded-full bg-rose-500 px-8 py-3 text-sm font-medium tracking-wide text-white transition-all duration-500;
+  }
+  .btn-rose:hover {
+    box-shadow: 0 10px 30px rgba(201, 139, 121, 0.45);
+  }
+  .btn-outline-rose {
+    @apply relative overflow-hidden rounded-full border border-rose-500 px-8 py-3 text-sm font-medium tracking-wide text-rose-600 transition-all duration-500;
+  }
+  .btn-outline-rose:hover {
+    @apply bg-rose-500 text-white;
+    box-shadow: 0 10px 30px rgba(201, 139, 121, 0.35);
+  }
+  .section-pad {
+    @apply px-6 py-20 md:px-12 lg:px-20 lg:py-28;
+  }
+  .container-lux {
+    @apply mx-auto max-w-7xl;
+  }
+  .heading-lux {
+    @apply font-display text-4xl leading-tight tracking-tight text-ink md:text-5xl lg:text-6xl;
+  }
+  .eyebrow {
+    @apply mb-3 text-xs font-medium uppercase tracking-[0.3em] text-rose-600;
+  }
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-rose-500 after:transition-all after:duration-500 hover:after:w-full;
+  }
+  .hero-artwork {
+    display: block;
+    -webkit-mask-image:
+      linear-gradient(to right, transparent, #000 12%, #000 88%, transparent),
+      linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent, #000 12%, #000 88%, transparent),
+      linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    mask-composite: intersect;
+  }
+  .hero-artwork-fashion {
+    mix-blend-mode: screen;
+  }
+  .hero-artwork-light {
+    mix-blend-mode: multiply;
+  }
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid #b5755f;
+  outline-offset: 3px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F3EF;
+}
+::-webkit-scrollbar-thumb {
+  background: #C98B79;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B5755F;
+}
+
+/* Hide default cursor on desktop for custom cursor */
+@media (min-width: 1024px) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Swiper overrides */
+.swiper-pagination-bullet {
+  background: #C98B79 !important;
+  opacity: 0.4 !important;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  width: 28px !important;
+  border-radius: 4px !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #C98B79 !important;
+}
+
+/* Brand palettes for the three independent divisions. */
+.brand-fashion {
+  background: #100e0b;
+  color: #f3ead8;
+}
+.brand-fashion [class~="bg-cream-50"],
+.brand-fashion [class~="bg-cream-100"],
+.brand-fashion [class~="bg-cream-200"] {
+  background-color: #100e0b !important;
+}
+.brand-fashion [class~="bg-white"] {
+  background-color: #1b1813 !important;
+}
+.brand-fashion [class*="text-ink"] {
+  color: #f3ead8 !important;
+}
+.brand-fashion [class~="bg-rose-500"] {
+  background-color: #b8934f !important;
+}
+.brand-fashion [class~="text-rose-500"],
+.brand-fashion [class~="text-rose-600"] {
+  color: #b8934f !important;
+}
+.brand-fashion .text-gold-gradient {
+  background-image: linear-gradient(120deg, #a87b36, #f1d18b 50%, #b8934f);
+}
+.brand-fashion .heading-lux {
+  color: #f3ead8;
+}
+.brand-fashion :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline-color: #d7b56f;
+}
+.brand-fashion .glass {
+  background: rgba(24, 21, 17, 0.88);
+  border-color: rgba(205, 171, 106, 0.22);
+}
+
+.brand-health [class~="bg-cream-50"],
+.brand-health [class~="bg-cream-100"],
+.brand-health [class~="bg-cream-200"] {
+  background-color: #fff7f2 !important;
+}
+.brand-health [class~="bg-rose-500"] {
+  background-color: #b86f63 !important;
+}
+.brand-health [class~="text-rose-500"],
+.brand-health [class~="text-rose-600"] {
+  color: #ad665c !important;
+}
+.brand-health [class~="bg-olive-500"] {
+  background-color: #43563d !important;
+}
+.brand-health [class~="text-olive-700"] {
+  color: #43563d !important;
+}
+.brand-health .text-gold-gradient {
+  background-image: linear-gradient(120deg, #ad665c, #d99b83 50%, #727b51);
+}
+
+.brand-healing {
+  background: #fff7f3;
+}
+.brand-healing [class~="bg-cream-50"],
+.brand-healing [class~="bg-cream-100"],
+.brand-healing [class~="bg-cream-200"] {
+  background-color: #fff7f3 !important;
+}
+.brand-healing [class~="bg-rose-500"] {
+  background-color: #3e573f !important;
+}
+.brand-healing [class~="text-rose-500"],
+.brand-healing [class~="text-rose-600"] {
+  color: #3e573f !important;
+}
+.brand-healing .text-gold-gradient {
+  background-image: linear-gradient(120deg, #b95e69, #d98586 50%, #3e573f);
+}
